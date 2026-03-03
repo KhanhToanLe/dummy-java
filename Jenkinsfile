@@ -27,7 +27,7 @@ pipeline {
                   reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/KhanhToanLe/dummy-java.git"],
                   contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "ci/jenkins/build-status"],
                   errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
-                statusResultSource: [$class: 'ConditionalStatusResultSource', results: [[$class: 'AnyBuildStepStatusSource', message: 'Build and Validation Passed', state: 'SUCCESS']]]
+                statusResultSource: [$class: 'ConditionalStatusResultSource', results: [[$class: 'AnyBuildResult', message: 'Build and Validation Passed', state: 'SUCCESS']]]
             ])
             
         }
@@ -37,7 +37,7 @@ pipeline {
                 reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/KhanhToanLe/dummy-java.git"],
                 contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "ci/jenkins/build-status"],
                 errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
-                statusResultSource: [$class: 'ConditionalStatusResultSource', results: [[$class: 'AnyBuildStepStatusSource', message: 'Build or Validation Failed', state: 'FAILURE']]]
+                statusResultSource: [$class: 'ConditionalStatusResultSource', results: [[$class: 'AnyBuildResult', message: 'Build or Validation Failed', state: 'FAILURE']]]
             ])
         }
     }
