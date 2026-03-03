@@ -24,6 +24,9 @@ pipeline {
         success {
             // 3. Report Success to GitHub
             step([$class: 'GitHubCommitStatusSetter', 
+                  reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/KhanhToanLe/dummy-java.git"],
+                  contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "ci/jenkins/build-status"],
+                  errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
                 statusResultSource: [$class: 'ConditionalStatusResultSource', results: [[$class: 'AnyBuildStepStatusSource', message: 'Build and Validation Passed', state: 'SUCCESS']]]
             ])
             
@@ -31,6 +34,9 @@ pipeline {
         failure {
             // 4. Report Failure to GitHub
             step([$class: 'GitHubCommitStatusSetter', 
+                reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/KhanhToanLe/dummy-java.git"],
+                contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "ci/jenkins/build-status"],
+                errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
                 statusResultSource: [$class: 'ConditionalStatusResultSource', results: [[$class: 'AnyBuildStepStatusSource', message: 'Build or Validation Failed', state: 'FAILURE']]]
             ])
         }
