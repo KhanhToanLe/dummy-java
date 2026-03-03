@@ -12,18 +12,6 @@ pipeline {
     }
 
     stages {
-        stage('Install Dependencies') {
-            steps {
-                // 1. Tell GitHub we are starting
-                step([$class: 'GitHubCommitStatusSetter', 
-                    contextSource: [$class: 'DefaultCommitContextSource', context: 'Jenkins/Maven-Build'], 
-                    statusResultSource: [$class: 'ConditionalStatusResultSource', results: [[$class: 'AnyBuildStepStatusSource', message: 'Installing dependencies...', state: 'PENDING']]]
-                ])
-                // 2. Run the actual command
-                // If this fails, the pipeline jumps straight to the 'post { failure }' block
-                sh 'mvn install'
-            }
-        }
         stage('Run Validations') {
             steps {
                 // If this fails, the 'post { failure { ... } }' block triggers
