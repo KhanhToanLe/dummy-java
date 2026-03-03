@@ -1,5 +1,7 @@
 package com.example.demo.bussiness;
 
+import tools.jackson.databind.ser.impl.FailingSerializer;
+
 /**
  * java doc class.
  */
@@ -9,6 +11,10 @@ public class Bussiness {
    */
   public static void doSomething(String[] args) {
     String a = "hello world";
+  }
+  
+  public static String doSomething(String value){
+    return "hello world"; 
   }
 }
 
