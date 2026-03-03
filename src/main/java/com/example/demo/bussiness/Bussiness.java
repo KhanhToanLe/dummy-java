@@ -12,24 +12,39 @@ public class Bussiness {
   public static void doSomething(String[] args) {
     String a = "hello world";
   }
-  
-  public static String doSomething(String value){
-    return "hello world"; 
+
+  /**
+   * java doc method.
+   */
+  public static String doSomething(String value) {
+    return "hello world";
   }
-  
-  public static String doSomething(int value){
+
+  /**
+   * java doc method.
+   */
+  public static String doSomething(int value) {
     return Integer.toString(value);
   }
-  
-  public static String doSomething(boolean value){
+
+  /**
+   * java doc method.
+   */
+  public static String doSomething(boolean value) {
     return Boolean.toString(value);
   }
-  
+
+  /**
+   * java doc method.
+   */
   public static String doSomething(long value) {
     return Long.toString(value);
   }
-  
-  public static String doSomething(byte value){
+
+  /**
+   * java doc method.
+   */
+  public static String doSomething(byte value) {
     return Byte.toString(value);
   }
 }
