@@ -3,11 +3,16 @@ package com.example.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * java doc class.
+ */
 @SpringBootApplication
 public class Demo1Application {
-    // change something2
-    public static void main(String[] args) {
-        SpringApplication.run(Demo1Application.class, args);
-    }
+  /**
+   * java doc method.
+   */
+  public static void main(String[] args) {
+    SpringApplication.run(Demo1Application.class, args);
+  }
 
 }

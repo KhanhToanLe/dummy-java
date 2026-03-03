@@ -1,8 +1,14 @@
 package com.example.demo.bussiness;
 
+/**
+ * java doc class.
+ */
 public class Bussiness {
-    public static void DoSomething(String[] args) {
-        String  a=  "hello world";
-    }
+  /**
+   * java doc method.
+   */
+  public static void doSomething(String[] args) {
+    String a = "hello world";
+  }
 }
 
