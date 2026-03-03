@@ -16,5 +16,9 @@ public class Bussiness {
   public static String doSomething(String value){
     return "hello world"; 
   }
+  
+  public static String doSomething(int value){
+    return Integer.toString(value);
+  }
 }
 
