@@ -24,5 +24,9 @@ public class Bussiness {
   public static String doSomething(boolean value){
     return Boolean.toString(value);
   }
+  
+  public static String doSomething(long value) {
+    return Long.toString(value);
+  }
 }
 
