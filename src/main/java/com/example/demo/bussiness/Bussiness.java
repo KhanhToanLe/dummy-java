@@ -20,5 +20,9 @@ public class Bussiness {
   public static String doSomething(int value){
     return Integer.toString(value);
   }
+  
+  public static String doSomething(boolean value){
+    return Boolean.toString(value);
+  }
 }
 
