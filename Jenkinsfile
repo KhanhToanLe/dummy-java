@@ -1,3 +1,16 @@
+@NonCPS
+def getChangedFilesList() {
+    def changedFiles = []
+    for (changeLogSet in currentBuild.changeSets) {
+        for (entry in changeLogSet.getItems()) { // for each commit in the detected changes
+            for (file in entry.getAffectedFiles()) {
+                changedFiles.add(file.getPath()) // add changed file to list
+            }
+        }
+    }
+    return changedFiles
+}
+
 pipeline {
     agent any 
     tools {
@@ -16,6 +29,24 @@ pipeline {
             steps {
                 // If this fails, the 'post { failure { ... } }' block triggers
                 sh 'mvn checkstyle:check' 
+            }
+        }
+        
+        stage('Checkout'){
+            steps{
+                checkout scm 
+            }
+        }
+        
+        stage('Get list change'){
+            steps{
+                script{
+                    def changedFiles  = getChangedFilesList()
+                    echo "change list:"
+                    for(fileName in changedFiles){
+                        echo "- ${fileName}" 
+                    }
+                }
             }
         }
     }
