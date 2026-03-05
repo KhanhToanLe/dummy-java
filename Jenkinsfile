@@ -12,6 +12,9 @@ def getChangedFilesList() {
 }
 
 pipeline {
+    // TODO: delete this some dummy code
+    // here too 1
+    // here too 2 
     agent any 
     tools {
         maven 'Maven 3.9.12'
@@ -23,6 +26,11 @@ pipeline {
         // without needing complex scripted steps in every stage.
         githubProjectProperty(projectUrlStr: 'https://github.com/KhanhToanLe/dummy-java.git')
     }
+    
+    
+    // TODO: delete this some dummy code
+    // here too 1
+    // here too 2 
 
     stages {
         stage('Run Validations') {
