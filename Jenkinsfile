@@ -4,7 +4,7 @@ def getChangedFilesList() {
     for (changeLogSet in currentBuild.changeSets) {
         for (entry in changeLogSet.getItems()) { // for each commit in the detected changes
             for (file in entry.getAffectedFiles()) {
-                changedFiles.add(file.getPath()) // add changed file to list
+                changedFiles.add(file) // add changed file to list
             }
         }
     }
@@ -44,6 +44,7 @@ pipeline {
                     def changedFiles  = getChangedFilesList()
                     echo "change list:"
                     for(fileName in changedFiles){
+                        
                         echo "- ${fileName}" 
                     }
                 }

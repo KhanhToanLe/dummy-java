@@ -19,6 +19,10 @@ public class Bussiness {
   public static String doSomething(String value) {
     return "hello world";
   }
+  
+  public static String doSomething(float value){
+    return Float.toString(value);
+  }
 
   /**
    * java doc method.
